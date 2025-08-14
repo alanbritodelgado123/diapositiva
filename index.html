@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otra Galería - Presentación del Proyecto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-blue {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+
+        .section-white {
+            background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
+            color: #2c3e50;
+        }
+
+        .section-content {
+            display: flex;
+            align-items: center;
+            min-height: 400px;
+        }
+
+        .text-content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .image-content {
+            flex: 0 0 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .image-placeholder {
+            width: 280px;
+            height: 280px;
+            border: 3px dashed rgba(255,255,255,0.5);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            opacity: 0.7;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .section-white .image-placeholder {
+            border-color: rgba(44,62,80,0.3);
+            background: rgba(44,62,80,0.1);
+            color: #2c3e50;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .section-subtitle {
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .section-text {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #f39c12;
+        }
+
+        .section-white .highlight-box {
+            background: rgba(52,152,219,0.1);
+            border-left-color: #3498db;
+        }
+
+        .problem-list, .requirement-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .problem-list li, .requirement-list li {
+            background: rgba(255,255,255,0.15);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .section-white .problem-list li, .section-white .requirement-list li {
+            background: rgba(52,152,219,0.15);
+            border-left-color: #3498db;
+        }
+
+        .cost-table {
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #2c3e50;
+        }
+
+        .cost-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .cost-row:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #e74c3c;
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            text-align: center;
+            padding: 50px 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .conclusion h2 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+        }
+
+        .conclusion p {
+            font-size: 1.4em;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .section-content {
+                flex-direction: column;
+            }
+
+            .image-content {
+                flex: none;
+                width: 100%;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .text-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width:700px;margin:40px auto 0 auto;padding:24px 16px;background:rgba(255,255,255,0.95);border-radius:18px;box-shadow:0 8px 24px rgba(44,62,80,0.12);border:2px solid #3498db;text-align:center;font-size:1.15em;line-height:1.7;color:#2c3e50;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;">
+        <div>República Bolivariana de Venezuela<br>
+        Ministerio del Poder Popular para la Educación<br>
+        Instituto Universitario Técnico Elías Calixto Pompa<br>
+        El Tigre Estado Anzoátegui</div>
+    </div>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📱 OTRA GALERÍA</h1>
+            <p>Solución Móvil para M.Ccreaciones</p>
+        </div>
+
+        <!-- Introducción -->
+        <div class="section section-blue">
+            <div class="section-content">
+                <div class="text-content">
+                    <h2 class="section-title">Introducción</h2>
+                    <p class="section-text">Hola, mi nombre es <strong>Juliano</strong> y hoy voy a presentarle "Otra Galería", una aplicación móvil diseñada para el emprendimiento familiar M.Ccreaciones, especializado en caketoppers personalizados.</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Problema Principal:</strong> El olvido frecuente de tomar fotografías de los productos antes de su entrega, lo que reduce el material disponible para promocionar el negocio en redes sociales.</p>
+                    </div>
+                    
+                    <p class="section-text">Para abordar este reto, utilicé la <strong>metodología de Kendall y Kendall</strong>, desarrollando el proyecto en cuatro fases bien definidas, complementadas con principios de desarrollo ágil y un modelo de estimación que asegura la viabilidad técnica y económica.</p>
+                </div>
+                <div class="image-content">
+                    <img src="img1.png" alt="Presentación Otra Galería" class="image-placeholder" style="object-fit:cover;width:280px;height:280px;border-radius:15px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Fase I -->
+        <div class="section section-white">
+            <div class="section-content">
+                <div class="image-content">
+                    <img src="img2.png" alt="Fase I Identificación" class="image-placeholder" style="object-fit:cover;width:280px;height:280px;border-radius:15px;">
+                </div>
+                <div class="text-content">
+                    <h2 class="section-title">Fase I</h2>
+                    <h3 class="section-subtitle">Identificación del problema, oportunidad y objetivos</h3>
+                    
+                    <p class="section-text">En el análisis inicial detectamos tres problemas clave:</p>
+                    <ul class="problem-list">
+                        <li>Falta de un sistema unificado para registrar pedidos</li>
+                        <li>Olvido recurrente de capturar fotos de productos terminados</li>
+                        <li>Escasez de material visual para marketing</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Oportunidad:</strong> Crear una aplicación que registre pedidos con temática y fecha de entrega, genere recordatorios automáticos para tomar fotos y construya un historial visual para promoción.</p>
+                    </div>
+                    
+                    <p class="section-text"><strong>Objetivo General:</strong> Optimizar la gestión de pedidos y automatizar los recordatorios fotográficos, mejorando la organización interna y la presencia digital.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fase II -->
+        <div class="section section-blue">
+            <div class="section-content">
+                <div class="text-content">
+                    <h2 class="section-title">Fase II</h2>
+                    <h3 class="section-subtitle">Determinación de requerimientos</h3>
+                    
+                    <p class="section-text"><strong>Requerimientos Funcionales:</strong></p>
+                    <ul class="requirement-list">
+                        <li>Registro de pedidos con temática y fecha</li>
+                        <li>Galería con estado "foto pendiente/foto tomada"</li>
+                        <li>Recordatorios automáticos configurables</li>
+                        <li>Almacenamiento seguro de fotografías</li>
+                    </ul>
+                    
+                    <p class="section-text"><strong>Requerimientos No Funcionales:</strong></p>
+                    <ul class="requirement-list">
+                        <li>Interfaz simple e intuitiva</li>
+                        <li>Funcionamiento offline</li>
+                        <li>Respaldo automático en la nube</li>
+                    </ul>
+                    
+                    <p class="section-text">Esta fase se desarrolló mediante <strong>entrevistas con la familia</strong>, observación directa de los procesos y análisis de su flujo de trabajo actual.</p>
+                </div>
+                <div class="image-content">
+                    <img src="img3.png" alt="Fase II Requerimientos" class="image-placeholder" style="object-fit:cover;width:280px;height:280px;border-radius:15px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Fase III -->
+        <div class="section section-white">
+            <div class="section-content">
+                <div class="image-content">
+                    <img src="img4.png" alt="Fase III Necesidades" class="image-placeholder" style="object-fit:cover;width:280px;height:280px;border-radius:15px;">
+                </div>
+                <div class="text-content">
+                    <h2 class="section-title">Fase III</h2>
+                    <h3 class="section-subtitle">Análisis de necesidades</h3>
+                    
+                    <p class="section-text">El sistema debe permitir:</p>
+                    <ul class="requirement-list">
+                        <li>Identificar rápidamente pedidos sin fotografía</li>
+                        <li>Registrar información de forma ágil</li>
+                        <li>Garantizar alertas antes de la fecha de entrega</li>
+                        <li>Mantener una galería organizada y útil para redes sociales</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Enfoque Usuario-Céntrico:</strong> La aplicación se diseña pensando en la facilidad de uso para todos los miembros de la familia, sin requerir conocimientos técnicos avanzados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fase IV -->
+        <div class="section section-blue">
+            <div class="section-content">
+                <div class="text-content">
+                    <h2 class="section-title">Fase IV</h2>
+                    <h3 class="section-subtitle">Diseño del sistema</h3>
+                    
+                    <p class="section-text">La aplicación se estructura con:</p>
+                    <ul class="requirement-list">
+                        <li><strong>Pantalla principal</strong> que lista pedidos y su estado</li>
+                        <li><strong>Botón de registro rápido</strong> para nuevos pedidos</li>
+                        <li><strong>Galería visual</strong> de pedidos completados</li>
+                        <li><strong>Notificaciones configuradas</strong> para recordar la toma de fotos</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Arquitectura Técnica:</strong> Flutter para desarrollo multiplataforma + Firebase para sincronización en la nube + Almacenamiento local para funcionalidad offline.</p>
+                    </div>
+                </div>
+                <div class="image-content">
+                    <img src="img5.png" alt="Fase IV Diseño" class="image-placeholder" style="object-fit:cover;width:280px;height:280px;border-radius:15px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Unidad I -->
+        <div class="section section-white">
+            <div class="section-content">
+                <div class="image-content">
+                    <img src="img6.png" alt="Unidad I Planificación" class="image-placeholder" style="object-fit:cover;width:280px;height:280px;border-radius:15px;">
+                </div>
+                <div class="text-content">
+                    <h2 class="section-title">Unidad I</h2>
+                    <h3 class="section-subtitle">Planificación del proyecto</h3>
+                    
+                    <p class="section-text">Se planificó un desarrollo de <strong>4 semanas</strong>, con entregas semanales y retroalimentación directa.</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Versión Demo:</strong> Funciones básicas de registro y galería</p>
+                        <p><strong>Versión Beta:</strong> Todas las características para pruebas en ciclo real</p>
+                    </div>
+                    
+                    <p class="section-text">El enfoque iterativo permite ajustes continuos basados en la retroalimentación del usuario final y las necesidades emergentes del emprendimiento.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unidad II -->
+        <div class="section section-blue">
+            <div class="section-content">
+                <div class="text-content">
+                    <h2 class="section-title">Unidad II</h2>
+                    <h3 class="section-subtitle">Recursos del proyecto</h3>
+                    
+                    <p class="section-text"><strong>Recursos Humanos:</strong> Un desarrollador principal que asume análisis, diseño, programación y pruebas, con apoyo ocasional de un mentor técnico.</p>
+                    
+                    <p class="section-text"><strong>Software y Herramientas:</strong></p>
+                    <ul class="requirement-list">
+                        <li>Flutter & Dart (Framework principal)</li>
+                        <li>Firebase (Backend y base de datos)</li>
+                        <li>SQLite (Almacenamiento local)</li>
+                        <li>VS Code (Entorno de desarrollo)</li>
+                        <li>Canva (Diseño de interfaces)</li>
+                    </ul>
+                    
+                    <p class="section-text"><strong>Entorno:</strong> Laptop de desarrollo, conexión estable a internet y espacio para pruebas fotográficas.</p>
+                </div>
+                <div class="image-content">
+                    <img src="img7.png" alt="Unidad II Recursos" class="image-placeholder" style="object-fit:cover;width:280px;height:280px;border-radius:15px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Unidad III -->
+        <div class="section section-white">
+            <div class="section-content">
+                <div class="image-content">
+                    <img src="img8.png" alt="Unidad III Costos" class="image-placeholder" style="object-fit:cover;width:280px;height:280px;border-radius:15px;">
+                </div>
+                <div class="text-content">
+                    <h2 class="section-title">Unidad III</h2>
+                    <h3 class="section-subtitle">Estimación de costos</h3>
+                    
+                    <div class="cost-table">
+                        <div class="cost-row">
+                            <span><strong>Desarrollo (120 horas × $15/h)</strong></span>
+                            <span>$1,800</span>
+                        </div>
+                        <div class="cost-row">
+                            <span><strong>Servicios básicos (Internet + Electricidad)</strong></span>
+                            <span>$40</span>
+                        </div>
+                        <div class="cost-row">
+                            <span><strong>Contingencia (10%)</strong></span>
+                            <span>$180</span>
+                        </div>
+                        <div class="cost-row">
+                            <span><strong>TOTAL USD</strong></span>
+                            <span>$2,020</span>
+                        </div>
+                        <div class="cost-row">
+                            <span><strong>TOTAL Bs. (Tasa BCV 13/08/2025)</strong></span>
+                            <span>269,709.40 Bs</span>
+                        </div>
+                    </div>
+                    
+                    <p class="section-text">Tasa de cambio utilizada: <strong>1 USD = 133,52 Bs</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unidad IV -->
+        <div class="section section-blue">
+            <div class="section-content">
+                <div class="text-content">
+                    <h2 class="section-title">Unidad IV</h2>
+                    <h3 class="section-subtitle">Modelos de estimación</h3>
+                    
+                    <p class="section-text">Se evaluaron <strong>COCOMO I y COCOMO II</strong>. Se eligió <strong>COCOMO I Intermedio</strong> por su ajuste al tamaño del proyecto.</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Características del proyecto:</strong></p>
+                        <p>• Tamaño: 3.5 KLOC</p>
+                        <p>• Equipo: 1 desarrollador</p>
+                        <p>• Tipo: Orgánico</p>
+                        <p>• Requisitos: Estables</p>
+                    </div>
+                    
+                    <p class="section-text"><strong>Estimación Final:</strong> 13.8 personas-mes en 6.2 meses con una carga de 22 horas semanales.</p>
+                    
+                    <p class="section-text">Esta estimación considera la curva de aprendizaje del desarrollador y la complejidad específica de las tecnologías seleccionadas.</p>
+                </div>
+                <div class="image-content">
+                    <img src="img9.png" alt="Unidad IV Modelos" class="image-placeholder" style="object-fit:cover;width:280px;height:280px;border-radius:15px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusión -->
+        <div class="conclusion">
+            <h2>🎯 Conclusión</h2>
+            <p>"Otra Galería" demuestra cómo una metodología estructurada y adaptada a un contexto familiar puede generar una solución viable, eficiente y con un <strong>retorno de inversión estimado en menos de seis meses</strong>, mejorando tanto la productividad como la visibilidad del emprendimiento.</p>
+            <br>
+            <p>La aplicación no solo resuelve el problema inmediato de gestión fotográfica, sino que establece las bases para la <strong>digitalización integral</strong> del emprendimiento familiar.</p>
+        </div>
+    </div>
+</body>
+    <div style="max-width:350px;margin:40px auto 24px auto;padding:16px 10px;background:rgba(255,255,255,0.95);border-radius:14px;box-shadow:0 4px 16px rgba(44,62,80,0.10);border:2px solid #3498db;text-align:center;font-size:1.15em;color:#2c3e50;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;">
+        Juliano Cardona 32.281.199
+    </div>
+</html>
